@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<defs>
+<marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#444" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<style>
+text{font-family:"Segoe UI",Arial,sans-serif;fill:#2C2C2A;font-size:22px;text-anchor:middle;dominant-baseline:central}
+.u{font-size:17px;fill:#444441}
+.l{font-size:18px;fill:#444441}
+.p{fill:#F1EFE8;stroke:#5F5E5A;stroke-width:1.5}
+.d{fill:#FAEEDA;stroke:#854F0B;stroke-width:1.5}
+.s{fill:#E1F5EE;stroke:#0F6E56;stroke-width:1.5}
+.e{fill:#FAECE7;stroke:#993C1D;stroke-width:1.5}
+.ln{stroke:#444;stroke-width:1.6;fill:none}
+.h{font-weight:600;font-size:24px}
+</style>
+</defs>
+<rect width="1920" height="1080" fill="#fff"/>
+
+<text class="h" x="260" y="18" style="font-size:20px;fill:#5F5E5A">1. Khởi tạo</text>
+<text class="h" x="900" y="18" style="font-size:20px;fill:#5F5E5A">2. Vòng lặp chính: đọc và kiểm tra</text>
+<text class="h" x="1620" y="18" style="font-size:20px;fill:#5F5E5A">3. Phân loại và điều khiển servo</text>
+
+<rect class="p" x="160" y="40" width="200" height="44" rx="22"/><text x="260" y="62">Bắt đầu</text>
+<path class="ln" d="M260 84V114" marker-end="url(#a)"/>
+<rect class="p" x="100" y="114" width="320" height="50" rx="6"/><text x="260" y="139">Cấu hình I/O (ADCON1 = 0x06)</text>
+<path class="ln" d="M260 164V194" marker-end="url(#a)"/>
+<rect class="p" x="100" y="194" width="320" height="50" rx="6"/><text x="260" y="219">Khởi tạo I2C và LCD</text>
+<path class="ln" d="M260 244V274" marker-end="url(#a)"/>
+<rect class="s" x="100" y="274" width="320" height="50" rx="6"/><text x="260" y="299">Khởi tạo, reset 2 servo</text>
+<path class="ln" d="M260 324V354" marker-end="url(#a)"/>
+<rect class="p" x="100" y="354" width="320" height="50" rx="6"/><text x="260" y="379">Timer1_Init, HX711_Begin</text>
+<path class="ln" d="M260 404V434" marker-end="url(#a)"/>
+<rect class="p" x="100" y="434" width="320" height="50" rx="6"/><text x="260" y="459">LCD: Đang cân chỉnh 0</text>
+<path class="ln" d="M260 484V514" marker-end="url(#a)"/>
+<polygon class="d" points="260,514 410,564 260,614 110,564"/><text x="260" y="564">Tare OK?</text>
+<path class="ln" d="M410 564H448" marker-end="url(#a)"/><text class="l" x="430" y="548">Lỗi</text>
+<rect class="e" x="450" y="534" width="140" height="60" rx="6"/><text x="520" y="552" style="font-size:19px">Lỗi HX711</text><text class="u" x="520" y="576">treo ở while(1)</text>
+<path class="ln" d="M260 614V644" marker-end="url(#a)"/><text class="l" x="282" y="630">OK</text>
+<rect class="p" x="100" y="644" width="320" height="70" rx="6"/><text x="260" y="666">HX711_SetScale(950)</text><text class="u" x="260" y="693">LCD: Cân sẵn sàng</text>
+<path class="ln" d="M260 714V744" marker-end="url(#a)"/>
+<rect class="p" x="160" y="744" width="200" height="44" rx="22"/><text x="260" y="766">Vào vòng lặp</text>
+<path class="ln" d="M360 766H620V62H748" marker-end="url(#a)"/>
+
+<rect class="p" x="750" y="40" width="300" height="44" rx="22"/><text x="900" y="62">Đầu vòng lặp while(1)</text>
+<path class="ln" d="M900 84V114" marker-end="url(#a)"/>
+<rect class="p" x="740" y="114" width="320" height="50" rx="6"/><text x="900" y="139">raw = HX711_GetValue(5)</text>
+<path class="ln" d="M900 164V194" marker-end="url(#a)"/>
+<polygon class="d" points="900,194 1050,239 900,284 750,239"/><text x="900" y="239">Lỗi đọc?</text>
+<path class="ln" d="M1050 239H1098" marker-end="url(#a)"/><text class="l" x="1074" y="223">Có</text>
+<rect class="e" x="1100" y="209" width="210" height="60" rx="6"/><text x="1205" y="227" style="font-size:20px">Chờ 200 ms</text><text class="u" x="1205" y="252">về đầu vòng lặp</text>
+<path class="ln" d="M900 284V314" marker-end="url(#a)"/><text class="l" x="948" y="300">Không</text>
+<rect class="p" x="740" y="314" width="320" height="50" rx="6"/><text x="900" y="339">khoiluong = GetUnits(5)</text>
+<path class="ln" d="M900 364V394" marker-end="url(#a)"/>
+<polygon class="d" points="900,394 1050,439 900,484 750,439"/><text x="900" y="439">Lỗi đọc?</text>
+<path class="ln" d="M1050 439H1098" marker-end="url(#a)"/><text class="l" x="1074" y="423">Có</text>
+<rect class="e" x="1100" y="409" width="210" height="60" rx="6"/><text x="1205" y="427" style="font-size:20px">Chờ 100 ms</text><text class="u" x="1205" y="452">về đầu vòng lặp</text>
+<path class="ln" d="M900 484V514" marker-end="url(#a)"/><text class="l" x="948" y="500">Không</text>
+<rect class="p" x="740" y="514" width="320" height="50" rx="6"/><text x="900" y="539">Lấy |kl|, hiển thị LCD</text>
+<path class="ln" d="M900 564V594" marker-end="url(#a)"/>
+<polygon class="d" points="900,594 1050,639 900,684 750,639"/><text x="900" y="639">kl &lt; 5 g ?</text>
+<path class="ln" d="M1050 639H1098" marker-end="url(#a)"/><text class="l" x="1074" y="623">Có</text>
+<rect class="p" x="1100" y="609" width="210" height="60" rx="6"/><text x="1205" y="627" style="font-size:20px">da_xuly = 0</text><text class="u" x="1205" y="652">chờ 150 ms, lặp lại</text>
+<path class="ln" d="M900 684V714" marker-end="url(#a)"/><text class="l" x="948" y="700">Không</text>
+<polygon class="d" points="900,714 1050,759 900,804 750,759"/><text x="900" y="759">da_xuly == 0 ?</text>
+<path class="ln" d="M1050 759H1098" marker-end="url(#a)"/><text class="l" x="1066" y="743">Không</text>
+<rect class="p" x="1100" y="729" width="210" height="60" rx="6"/><text x="1205" y="747" style="font-size:20px">Bỏ qua</text><text class="u" x="1205" y="772">chờ 150 ms, lặp lại</text>
+<path class="ln" d="M900 804V834" marker-end="url(#a)"/><text class="l" x="918" y="820">Có</text>
+<rect class="p" x="740" y="834" width="320" height="50" rx="6"/><text x="900" y="859">da_xuly = 1; PhanLoai(kl)</text>
+<text class="u" x="900" y="912">&lt;10 g: loại 1 | &lt;20 g: loại 2 | còn lại: loại 3</text>
+<path class="ln" d="M1060 859H1380V149H1448" marker-end="url(#a)"/>
+
+<rect class="s" x="1450" y="114" width="340" height="70" rx="6"/><text x="1620" y="136">Bật Timer1, servo PL quay</text><text class="u" x="1620" y="164">loại 1: 50° | loại 2: 130° | loại 3: 180°</text>
+<path class="ln" d="M1620 184V214" marker-end="url(#a)"/>
+<rect class="p" x="1450" y="214" width="340" height="50" rx="6"/><text x="1620" y="239">Chờ Timer1 đủ 1000 ms, tắt</text>
+<path class="ln" d="M1620 264V294" marker-end="url(#a)"/>
+<rect class="s" x="1450" y="294" width="340" height="100" rx="6"/><text x="1620" y="319">XuLySanPham(loai)</text><text class="u" x="1620" y="347">Servo đẩy 0° → 45°, tăng bộ đếm</text><text class="u" x="1620" y="372">Chờ 3 s, servo PL về 180°</text>
+<path class="ln" d="M1620 394V424" marker-end="url(#a)"/>
+<rect class="p" x="1450" y="424" width="340" height="50" rx="6"/><text x="1620" y="449">Cập nhật LCD, chờ 150 ms</text>
+<path class="ln" d="M1620 474V504" marker-end="url(#a)"/>
+<rect class="p" x="1500" y="504" width="240" height="44" rx="22"/><text x="1620" y="526">Về đầu vòng lặp</text>
+
+<rect class="p" x="1450" y="650" width="26" height="20"/><text class="l" x="1490" y="660" style="text-anchor:start">Bước xử lý</text>
+<polygon class="d" points="1463,690 1476,705 1463,720 1450,705"/><text class="l" x="1490" y="705" style="text-anchor:start">Điều kiện rẽ nhánh</text>
+<rect class="s" x="1450" y="740" width="26" height="20"/><text class="l" x="1490" y="750" style="text-anchor:start">Điều khiển servo</text>
+<rect class="e" x="1450" y="780" width="26" height="20"/><text class="l" x="1490" y="790" style="text-anchor:start">Nhánh lỗi</text>
+</svg>

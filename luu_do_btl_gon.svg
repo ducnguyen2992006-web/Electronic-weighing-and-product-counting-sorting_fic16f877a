@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<defs>
+<marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1L9 5L2 9" fill="none" stroke="#333" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<style>
+text{font-family:"Segoe UI",Arial,sans-serif;fill:#2C2C2A;font-size:28px;text-anchor:middle;dominant-baseline:central}
+.u{font-size:21px;fill:#444441}
+.l{font-size:24px;fill:#444441}
+.p{fill:#F1EFE8;stroke:#5F5E5A;stroke-width:2}
+.d{fill:#FAEEDA;stroke:#854F0B;stroke-width:2}
+.s{fill:#E1F5EE;stroke:#0F6E56;stroke-width:2}
+.e{fill:#FAECE7;stroke:#993C1D;stroke-width:2}
+.ln{stroke:#333;stroke-width:2.2;fill:none}
+</style>
+</defs>
+<rect width="1920" height="1080" fill="#fff"/>
+
+<rect class="p" x="40" y="295" width="180" height="50" rx="25"/><text x="130" y="320">Bắt đầu</text>
+<path class="ln" d="M220 320H258" marker-end="url(#a)"/>
+<rect class="p" x="260" y="265" width="340" height="110" rx="8"/><text x="430" y="297">Khởi tạo I/O, LCD,</text><text x="430" y="343">servo, Timer1, HX711</text>
+<path class="ln" d="M600 320H638" marker-end="url(#a)"/>
+<polygon class="d" points="780,240 920,320 780,400 640,320"/><text x="780" y="320">Cân bì OK?</text>
+<path class="ln" d="M780 240V172" marker-end="url(#a)"/><text class="l" x="830" y="206">Lỗi</text>
+<rect class="e" x="660" y="90" width="240" height="80" rx="8"/><text x="780" y="116">Báo lỗi LCD,</text><text x="780" y="148">dừng hẳn</text>
+
+<path class="ln" d="M920 320H998" marker-end="url(#a)"/><text class="l" x="960" y="296">OK</text>
+<rect class="p" x="1000" y="265" width="340" height="110" rx="8"/><text x="1170" y="297">Đọc khối lượng,</text><text x="1170" y="343">hiển thị LCD</text>
+<path class="ln" d="M1340 320H1488" marker-end="url(#a)"/>
+<polygon class="d" points="1640,240 1790,320 1640,400 1490,320"/><text x="1640" y="300">Có vật mới</text><text x="1640" y="338">trên cân?</text>
+<path class="ln" d="M1640 240V190H1170V262" marker-end="url(#a)"/><text class="l" x="1405" y="164">Không: đọc lại</text>
+
+<path class="ln" d="M1640 400V558" marker-end="url(#a)"/><text class="l" x="1672" y="480" style="text-anchor:start">Có</text>
+<rect class="p" x="1450" y="560" width="380" height="120" rx="8"/><text x="1640" y="596">Phân loại theo khối lượng</text><text class="u" x="1640" y="646">&lt;10 g: L1 | &lt;20 g: L2 | còn lại: L3</text>
+<path class="ln" d="M1450 620H1342" marker-end="url(#a)"/>
+<rect class="s" x="970" y="570" width="370" height="100" rx="8"/><text x="1155" y="596">Servo phân loại quay,</text><text x="1155" y="644">chờ 1 s (Timer1)</text>
+<path class="ln" d="M970 620H872" marker-end="url(#a)"/>
+<rect class="s" x="500" y="570" width="370" height="100" rx="8"/><text x="685" y="596">Servo đẩy vật, đếm,</text><text x="685" y="644">cập nhật LCD</text>
+<path class="ln" d="M500 620H100V470H1170V378" marker-end="url(#a)"/><text class="l" x="520" y="446">Quay lại đầu vòng lặp</text>
+
+<rect class="p" x="100" y="860" width="40" height="30" rx="4"/><text class="l" x="156" y="875" style="text-anchor:start">Bước xử lý</text>
+<polygon class="d" points="420,860 445,875 420,890 395,875"/><text class="l" x="462" y="875" style="text-anchor:start">Điều kiện</text>
+<rect class="s" x="680" y="860" width="40" height="30" rx="4"/><text class="l" x="736" y="875" style="text-anchor:start">Điều khiển servo</text>
+<rect class="e" x="1000" y="860" width="40" height="30" rx="4"/><text class="l" x="1056" y="875" style="text-anchor:start">Báo lỗi</text>
+</svg>
